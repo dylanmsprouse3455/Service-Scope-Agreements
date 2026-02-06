@@ -5,10 +5,12 @@
   <title>Project Agreement Wizard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <script src="logic.js" defer></script>
 </head>
 
 <body>
   <div class="wrap">
+
     <div class="topbar">
       <div class="brand">
         <div class="title">Project Agreement</div>
@@ -21,267 +23,97 @@
 
     <div class="content">
 
-      <!-- STEP 1 -->
       <section class="step active">
         <h1>Quick heads up</h1>
-        <p>
-          This walkthrough makes the project expectations clear before work begins.
-          It is designed to be simple and low-friction.
-        </p>
-
+        <p>This walkthrough clarifies expectations before work begins.</p>
         <div class="callout warn">
-          <p style="margin:0;">
-            This is not a legal contract. It is a written acknowledgment of scope and payment expectations to prevent misunderstandings.
-          </p>
+          This is not a legal contract. It documents scope and payment expectations.
         </div>
-
-        <div class="panel">
-          <strong>Time:</strong> about 2 minutes<br/>
-          <strong>What happens after:</strong> you get a copy in email, and we schedule next steps
-        </div>
-
         <div class="actions">
-          <button class="btn-ghost" type="button" onclick="window.print()">Print / Save PDF</button>
-          <button class="btn-next" type="button" onclick="nextStep()">Continue</button>
-        </div>
-
-        <div class="footer-note">
-          Tip: You can print this at any time using the button above.
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
         </div>
       </section>
 
-      <!-- STEP 2 -->
       <section class="step">
-        <h1>Summary of how this project works</h1>
-        <p>
-          This is the short version. The full details are below if you want to expand them.
-        </p>
-
-        <div class="panel">
-          <ul class="bullets">
-            <li>We confirm your current services, rules, hours, and intake process first.</li>
-            <li>The website is built based on confirmed details, not outdated online info.</li>
-            <li>Pricing is split: 50% to begin, 50% at completion before launch or handoff.</li>
-            <li>Domain and hosting costs are paid by the client unless otherwise agreed.</li>
-            <li>Reasonable revisions are included. Major additions or scope changes may be quoted separately.</li>
-          </ul>
-        </div>
-
-        <details>
-          <summary>Why we confirm details first</summary>
-          <p>
-            Kennel and service businesses change policies and hours over time. Building a site off outdated info causes confusion, refunds, and lost bookings.
-            The discovery step prevents that and keeps the final site accurate.
-          </p>
-        </details>
-
+        <h1>How this project works</h1>
+        <ul class="bullets">
+          <li>We confirm current services and rules first</li>
+          <li>Website is built from confirmed info, not old listings</li>
+          <li>50% upfront, 50% before launch</li>
+          <li>Domain and hosting are client-paid</li>
+        </ul>
         <div class="actions">
-          <button class="btn-back" type="button" onclick="prevStep()">Back</button>
-          <button class="btn-next" type="button" onclick="nextStep()">Looks good</button>
+          <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
         </div>
       </section>
 
-      <!-- STEP 3 -->
       <section class="step">
         <h1>What's included</h1>
-        <p>
-          This is the general scope for a typical small business website build. Specific pages and features can be adjusted after discovery.
-        </p>
-
-        <details>
-          <summary>Included in scope</summary>
-          <ul class="bullets">
-            <li>Website structure and layout planning</li>
-            <li>Service pages (boarding, daycare, grooming, etc., as applicable)</li>
-            <li>Policies and requirements page (vaccines, spay/neuter, timing rules, etc.)</li>
-            <li>Clear intake flow (how to start, what forms are needed, what to bring, what to expect)</li>
-            <li>Photo placement and basic gallery sections if content is provided</li>
-            <li>Mobile-friendly design and readable content formatting</li>
-            <li>Contact page with a working form</li>
-            <li>Basic link-out to social media (Facebook, Instagram, etc.) if desired</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Not included unless added later</summary>
-          <ul class="bullets">
-            <li>Paid advertising management (Google Ads, Facebook Ads)</li>
-            <li>Ongoing social media management</li>
-            <li>Legal or compliance consulting</li>
-            <li>Third-party booking platforms and their subscription fees</li>
-            <li>Photography services (unless specifically arranged)</li>
-            <li>Unlimited revisions or major direction changes after approvals</li>
-          </ul>
-        </details>
-
-        <div class="callout good">
-          <p style="margin:0;">
-            Goal: reduce friction, answer customer concerns, show trust visually, and make it easy to book.
-          </p>
-        </div>
-
+        <ul class="bullets">
+          <li>Website structure and layout</li>
+          <li>Service and policy pages</li>
+          <li>Intake explanation</li>
+          <li>Mobile-friendly design</li>
+        </ul>
         <div class="actions">
-          <button class="btn-back" type="button" onclick="prevStep()">Back</button>
-          <button class="btn-next" type="button" onclick="nextStep()">Continue</button>
+          <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
         </div>
       </section>
 
-      <!-- STEP 4 -->
       <section class="step">
         <h1>Client responsibilities</h1>
-        <p>
-          This part prevents the classic delays: missing info, missing photos, and unclear policies.
-        </p>
-
-        <details open>
-          <summary>What the client provides</summary>
-          <ul class="bullets">
-            <li>Confirmed services offered (what is active today)</li>
-            <li>Confirmed hours and contact details</li>
-            <li>Confirmed rules and requirements (vaccines, spay/neuter, intake timing)</li>
-            <li>Forms and intake documents (or confirmation of what they should say)</li>
-            <li>Photos, logo, and brand preferences if available</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Approvals and responsiveness</summary>
-          <p>
-            The project moves fastest when feedback is given in batches and approvals are clear.
-            If approvals are delayed, the timeline naturally extends.
-          </p>
-        </details>
-
+        <ul class="bullets">
+          <li>Provide accurate info and rules</li>
+          <li>Supply forms and photos</li>
+          <li>Approve content in a timely manner</li>
+        </ul>
         <div class="actions">
-          <button class="btn-back" type="button" onclick="prevStep()">Back</button>
-          <button class="btn-next" type="button" onclick="nextStep()">Continue</button>
+          <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
         </div>
       </section>
 
-      <!-- STEP 5 -->
       <section class="step">
-        <h1>Payments, domain, and updates</h1>
-
-        <details open>
-          <summary>Payment structure</summary>
-          <ul class="bullets">
-            <li>50% upfront to begin work</li>
-            <li>50% due upon completion, prior to final launch or handoff</li>
-            <li>Work begins after the initial payment is received</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Domain and hosting</summary>
-          <ul class="bullets">
-            <li>Domain registration and hosting fees are not included in the project price.</li>
-            <li>If a new domain is needed, the client pays the domain purchase fee.</li>
-            <li>If an existing domain is owned, it can be connected or transferred. Provider fees remain the client's responsibility.</li>
-            <li>DNS changes and connection setup are included as part of launch setup.</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Revisions and scope changes</summary>
-          <ul class="bullets">
-            <li>Reasonable revisions are included.</li>
-            <li>Major changes like new pages, new features, or big direction shifts may require an additional quote before proceeding.</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Ownership and future updates</summary>
-          <ul class="bullets">
-            <li>After final payment, the website files and content created for the project are provided to the client.</li>
-            <li>Ongoing updates and maintenance can be handled separately if desired.</li>
-          </ul>
-        </details>
-
+        <h1>Payments and ownership</h1>
+        <ul class="bullets">
+          <li>50% upfront, 50% at completion</li>
+          <li>Files delivered after final payment</li>
+        </ul>
         <div class="actions">
-          <button class="btn-back" type="button" onclick="prevStep()">Back</button>
-          <button class="btn-next" type="button" onclick="nextStep()">Continue</button>
+          <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
         </div>
       </section>
 
-      <!-- STEP 6 (FORM) -->
       <section class="step">
-        <h1>Acknowledgment and signature</h1>
-        <p>
-          Please fill this out to confirm understanding of the scope and payment structure.
-        </p>
+        <h1>Acknowledgment</h1>
 
-        <div class="printbar">
-          <button class="btn-ghost" type="button" onclick="window.print()">Print / Save PDF</button>
-        </div>
+        <form id="agreementForm" action="https://formspree.io/f/xwvqyjqz" method="POST">
+          <label>Name</label>
+          <input name="Client Name" required>
 
-        <form action="https://formspree.io/f/xwvqyjqz" method="POST" id="agreementForm">
+          <label>Business</label>
+          <input name="Business Name" required>
 
-          <div class="grid">
-            <div>
-              <label>Client Name</label>
-              <input type="text" name="Client Name" required />
-            </div>
-            <div>
-              <label>Business Name</label>
-              <input type="text" name="Business Name" required />
-            </div>
-          </div>
+          <label>Email</label>
+          <input type="email" name="Email" required>
 
-          <div class="grid">
-            <div>
-              <label>Email</label>
-              <input type="email" name="Email" required />
-            </div>
-            <div>
-              <label>Project Name (optional)</label>
-              <input type="text" name="Project Name" placeholder="Example: Bark Website" />
-            </div>
-          </div>
+          <label>Typed Signature</label>
+          <input name="Signature" required>
 
-          <label>Optional Notes or Clarifications</label>
-          <textarea name="Notes"></textarea>
-          <div class="mini">Example: "We are rebranding fully" or "Hours changed" or "No group play option."</div>
-
-          <div class="panel">
-            <strong>Typed signature and acknowledgment</strong>
-            <p style="margin:10px 0 0;">
-              By submitting, you acknowledge that you have read and understand the general scope and expectations described above.
-              You understand this is not a legal contract.
-            </p>
-          </div>
-
-          <div class="grid">
-            <div>
-              <label>Typed Signature (Full Name)</label>
-              <input type="text" name="Typed Signature" required />
-            </div>
-            <div>
-              <label>Date</label>
-              <input type="date" name="Date" required />
-            </div>
-          </div>
-
-          <div class="row">
-            <input type="checkbox" id="ack" required />
-            <label for="ack" style="margin:0; font-weight:700;">
-              I acknowledge that I have read and understand the scope and payment structure and understand this is not a legally binding contract.
-            </label>
-          </div>
+          <label>Date</label>
+          <input type="date" name="Date" required>
 
           <div class="actions">
-            <button class="btn-back" type="button" onclick="prevStep()">Back</button>
-            <button class="btn-next" type="submit">Submit</button>
-          </div>
-
-          <div class="footer-note">
-            After submission, you will receive a confirmation record via email.
+            <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+            <button type="submit" class="btn-next">Submit</button>
           </div>
         </form>
       </section>
 
     </div>
   </div>
-
- <script src="logic.js" defer></script>
 </body>
 </html>
