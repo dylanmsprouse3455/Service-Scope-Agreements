@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Project Agreement</title>
+  <style>
+    body {
+      font-family: system-ui;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    h1 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Project Agreement</h1>
+
+<p>
+This document summarizes the agreed project scope, responsibilities, and payment structure.
+This is not a legal contract.
+</p>
+
+<p><strong>Client:</strong> <span id="name"></span></p>
+<p><strong>Business:</strong> <span id="biz"></span></p>
+<p><strong>Date:</strong> <span id="date"></span></p>
+
+<script>
+  const p = new URLSearchParams(location.search);
+  document.getElementById("name").textContent = p.get("Client Name") || "";
+  document.getElementById("biz").textContent = p.get("Business Name") || "";
+  document.getElementById("date").textContent = p.get("Date") || "";
+
+  window.onload = () => setTimeout(() => window.print(), 300);
+</script>
+
+</body>
+</html>
