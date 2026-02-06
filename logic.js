@@ -65,3 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render
   render();
 });
+
+document.querySelectorAll("[data-print]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.body.classList.add("print-mode");
+    setTimeout(() => window.print(), 100);
+  });
+});
