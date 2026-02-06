@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Project Agreement & Scope Acknowledgment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
       --ink: #0f172a;
       --muted: #475569;
       --line: #e2e8f0;
+      --soft: #f8fafc;
+      --btn: #2563eb;
+      --btn-hover: #1d4ed8;
     }
 
     * {
@@ -21,65 +24,83 @@
       margin: 48px;
       color: var(--ink);
       line-height: 1.7;
-      background: #fff;
+      background: #ffffff;
     }
 
     h1 {
       font-size: 1.9rem;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .subtitle {
       font-size: 0.95rem;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      border: none;
+      background: var(--btn);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+    }
+
+    .callout {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 14px;
+      margin: 18px 0;
+      font-size: 0.95rem;
     }
 
     h2 {
-      font-size: 1.2rem;
-      margin-top: 36px;
-      margin-bottom: 8px;
+      font-size: 1.15rem;
+      margin-top: 34px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 4px;
     }
 
     p {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       color: var(--muted);
       margin: 8px 0;
     }
 
     ul {
       margin: 10px 0 10px 22px;
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.98rem;
     }
 
     li {
       margin-bottom: 6px;
     }
 
-    .callout {
-      border: 1px solid var(--line);
-      background: #f8fafc;
-      padding: 14px;
-      margin: 20px 0;
-      font-size: 0.9rem;
-      color: #000;
-    }
-
     form {
-      margin-top: 48px;
+      margin-top: 44px;
       border-top: 2px solid var(--line);
-      padding-top: 32px;
+      padding-top: 26px;
     }
 
     label {
       display: block;
-      margin-top: 18px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #000;
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 0.92rem;
     }
 
     input,
@@ -88,54 +109,86 @@
       margin-top: 6px;
       padding: 10px 12px;
       border: 1px solid var(--line);
-      border-radius: 6px;
-      font-size: 0.95rem;
+      border-radius: 8px;
+      font-size: 0.98rem;
       font-family: inherit;
     }
 
     textarea {
-      resize: vertical;
       min-height: 90px;
+      resize: vertical;
     }
 
-    .checkbox {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        margin: 22px;
+      }
+    }
+
+    .checkrow {
       display: flex;
       gap: 10px;
-      margin-top: 20px;
-      font-size: 0.9rem;
       align-items: flex-start;
+      margin-top: 18px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
     }
 
-    .checkbox input {
-      margin-top: 4px;
+    .checkrow input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
     }
 
-    .submit-row {
-      margin-top: 28px;
-    }
-
-    button {
-      padding: 12px 22px;
-      border-radius: 6px;
-      border: none;
-      background: #2563eb;
-      color: #fff;
+    .checktext {
       font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
+      font-weight: 700;
     }
 
-    button:hover {
-      background: #1d4ed8;
+    .submitrow {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Honeypot */
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
 
     @media print {
-      body {
-        margin: 32px;
+      .toolbar {
+        display: none;
       }
 
-      button {
-        display: none;
+      body {
+        margin: 28px;
+      }
+
+      form {
+        page-break-before: always;
       }
     }
   </style>
@@ -143,125 +196,123 @@
 
 <body>
 
+  <div class="toolbar">
+    <button class="btn" type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
   <h1>Project Agreement & Scope Overview</h1>
   <div class="subtitle">
-    This document outlines the general scope, responsibilities, and payment expectations for this website project.
+    Scope, responsibilities, and payment expectations
   </div>
 
   <div class="callout">
-    <strong>Important:</strong> This document is not a legal contract.
-    It is provided for clarity, transparency, and alignment prior to work beginning.
+    <strong>Important:</strong> This document is not a legal contract. It is a written acknowledgment intended to prevent misunderstandings.
   </div>
 
-  <h2>Project Purpose</h2>
+  <h2>Project purpose</h2>
   <p>
-    The purpose of this project is to design and build a website that accurately reflects how the business operates today,
-    improves clarity for customers, builds trust, and supports inquiries or bookings.
-  </p>
-  <p>
-    Existing online information may be outdated. All website content will be based on confirmed details provided by the client
-    during the discovery and clarification process.
+    This project is intended to produce a website that accurately reflects how the business operates today, reduces customer confusion, and supports inquiries or bookings.
   </p>
 
-  <h2>General Scope of Work</h2>
+  <h2>General scope</h2>
   <ul>
     <li>Website structure and layout planning</li>
     <li>Service pages based on confirmed offerings</li>
-    <li>Clear explanation of policies, rules, and requirements</li>
-    <li>Intake and “how to get started” information</li>
-    <li>Photo placement and basic gallery sections if content is provided</li>
-    <li>Mobile-friendly layout and readable formatting</li>
+    <li>Policies and intake requirements clearly explained</li>
     <li>Contact page with a working form</li>
-    <li>Basic social media linking if desired</li>
+    <li>Mobile-friendly design</li>
   </ul>
 
-  <h2>Items Not Included Unless Agreed Separately</h2>
+  <h2>Client responsibilities</h2>
   <ul>
-    <li>Paid advertising or marketing management</li>
-    <li>Social media management</li>
-    <li>Legal, compliance, or regulatory consulting</li>
-    <li>Third-party booking platforms or subscription fees</li>
-    <li>Photography services unless specifically arranged</li>
-    <li>Unlimited revisions or major direction changes</li>
+    <li>Provide accurate services, hours, rules, and policies</li>
+    <li>Provide forms, photos, and branding if available</li>
+    <li>Review and approve content in a timely manner</li>
   </ul>
 
-  <h2>Client Responsibilities</h2>
+  <h2>Payments</h2>
   <ul>
-    <li>Confirm current services, hours, contact details, and rules</li>
-    <li>Provide accurate policies and intake requirements</li>
-    <li>Provide intake forms or confirm required wording</li>
-    <li>Supply photos, logos, and brand preferences if available</li>
-    <li>Review content and provide timely approvals</li>
+    <li>50% due upfront before work begins</li>
+    <li>50% due upon completion before launch or handoff</li>
   </ul>
 
-  <h2>Payment Structure</h2>
+  <h2>Domain and hosting</h2>
   <ul>
-    <li>50% of the project cost is due upfront before work begins</li>
-    <li>50% is due upon completion, prior to final launch or handoff</li>
-    <li>Work begins after the initial payment is received</li>
+    <li>Domain and hosting fees are not included unless stated</li>
+    <li>Client is responsible for domain ownership and renewals</li>
   </ul>
 
-  <h2>Domain & Hosting</h2>
+  <h2>Revisions and ownership</h2>
   <ul>
-    <li>Domain registration and hosting fees are not included in the project price</li>
-    <li>If a new domain is required, the client pays the domain purchase fee</li>
-    <li>If an existing domain is owned, it may be connected or transferred</li>
-    <li>Any provider fees remain the client’s responsibility</li>
+    <li>Reasonable revisions included</li>
+    <li>Major scope changes may require additional quotes</li>
+    <li>Final files are provided after final payment</li>
   </ul>
 
-  <h2>Revisions & Scope Changes</h2>
-  <ul>
-    <li>Reasonable revisions are included</li>
-    <li>Major changes may require an additional quote</li>
-    <li>Scope changes will be discussed before proceeding</li>
-  </ul>
-
-  <h2>Ownership & Future Updates</h2>
-  <ul>
-    <li>After final payment, website files and content created for the project are provided to the client</li>
-    <li>Ongoing updates or maintenance can be handled separately if desired</li>
-  </ul>
-
-  <h2>Acknowledgment & Submission</h2>
+  <h2>Acknowledgment</h2>
   <p>
-    By completing the form below, the client acknowledges that they have read and understand the scope,
-    responsibilities, and payment expectations described above.
+    By submitting the form below, the client confirms understanding of the scope and payment expectations described above.
   </p>
 
-  <!-- FORMSPREE FORM -->
   <form action="https://formspree.io/f/xwvqyjqz" method="POST">
+    <input type="hidden" name="_subject" value="Project Agreement Acknowledgment" />
+    <input type="hidden" name="Document Version" value="Printable Agreement v1" />
 
-    <label>Client Name</label>
-    <input type="text" name="Client Name" required>
+    <label class="hp">Leave this field empty</label>
+    <input class="hp" type="text" name="_gotcha" />
 
-    <label>Business Name</label>
-    <input type="text" name="Business Name" required>
+    <div class="grid">
+      <div>
+        <label>Client name</label>
+        <input type="text" name="Client Name" required />
+      </div>
+      <div>
+        <label>Business name</label>
+        <input type="text" name="Business Name" required />
+      </div>
+    </div>
 
-    <label>Email Address</label>
-    <input type="email" name="Email" required>
+    <div class="grid">
+      <div>
+        <label>Email</label>
+        <input type="email" name="_replyto" required />
+      </div>
+      <div>
+        <label>Date</label>
+        <input type="date" name="Date" required />
+      </div>
+    </div>
 
-    <label>Typed Signature (Full Name)</label>
-    <input type="text" name="Typed Signature" required>
+    <label>Typed signature (full name)</label>
+    <input type="text" name="Typed Signature" required />
 
-    <label>Date</label>
-    <input type="date" name="Date" required>
+    <label>Optional notes</label>
+    <textarea name="Notes"></textarea>
 
-    <label>Optional Notes or Clarifications</label>
-    <textarea name="Notes" placeholder="Example: full rebrand, hours changed, services updated, etc."></textarea>
-
-    <div class="checkbox">
-      <input type="checkbox" required>
-      <label>
-        I acknowledge that I have read and understand the project scope, responsibilities,
-        and payment structure, and understand that this is not a legally binding contract.
+    <div class="checkrow">
+      <input type="checkbox" id="ack" required />
+      <label for="ack" class="checktext">
+        I acknowledge that I have read and understand this document and understand it is not legally binding.
       </label>
     </div>
 
-    <div class="submit-row">
-      <button type="submit">Submit Acknowledgment</button>
+    <div class="submitrow">
+      <button type="submit" class="btn">Submit acknowledgment</button>
     </div>
 
+    <p class="form-note">
+      A record of this submission will be delivered via Formspree.
+    </p>
   </form>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const dateInput = document.querySelector('input[type="date"]');
+      if (dateInput && !dateInput.value) {
+        dateInput.value = new Date().toISOString().split("T")[0];
+      }
+    });
+  </script>
 
 </body>
 </html>
