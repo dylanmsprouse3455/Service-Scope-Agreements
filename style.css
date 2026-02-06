@@ -542,3 +542,11 @@ button {
     print-color-adjust: exact;
   }
 }
+
+body.print-mode .step {
+  display: block !important;
+}
+
+body.print-mode details {
+  open: true;
+}
